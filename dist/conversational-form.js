@@ -4875,11 +4875,11 @@ var cf;
                             break;
                     }
                 }
-                if (!this.isRobotResponse && !this.onClickCallback) {
-                    // edit
-                    this.onClickCallback = this.onClick.bind(this);
-                    this.el.addEventListener(cf.Helpers.getMouseEvent("click"), this.onClickCallback, false);
-                }
+                // if (!this.isRobotResponse && !this.onClickCallback) {
+                //     // edit
+                //     this.onClickCallback = this.onClick.bind(this);
+                //     this.el.addEventListener(cf.Helpers.getMouseEvent("click"), this.onClickCallback, false);
+                // }
             }
         };
         ChatResponse.prototype.show = function () {
@@ -5096,13 +5096,13 @@ var cf;
         * @name onClickCallback
         * click handler for el
         */
-        ChatResponse.prototype.onClick = function (event) {
-            this.setToThinking();
-            cf.ConversationalForm.illustrateFlow(this, "dispatch", cf.ChatResponseEvents.USER_ANSWER_CLICKED, event);
-            this.eventTarget.dispatchEvent(new CustomEvent(cf.ChatResponseEvents.USER_ANSWER_CLICKED, {
-                detail: this._tag
-            }));
-        };
+        // ChatResponse.prototype.onClick = function (event) {
+        //     this.setToThinking();
+        //     cf.ConversationalForm.illustrateFlow(this, "dispatch", cf.ChatResponseEvents.USER_ANSWER_CLICKED, event);
+        //     this.eventTarget.dispatchEvent(new CustomEvent(cf.ChatResponseEvents.USER_ANSWER_CLICKED, {
+        //         detail: this._tag
+        //     }));
+        // };
         ChatResponse.prototype.setData = function (options) {
             this.image = options.image;
             this.response = this.originalResponse = options.response;

@@ -4309,8 +4309,8 @@ var cf;
         };
 
         UserTextInput.prototype.phoneFormatUpdate = function(val) {
-            let new_number;
-            if (val.length > 2) {
+            let new_number = val.replace(/\D/g,'');
+            if (new_number.length > 2) {
                 // matches: 123 || 123-4 || 123-45
                 new_number = val.substring(0,3) + '-';
                 if (val.length === 4 || val.length === 5) {
@@ -4327,15 +4327,14 @@ var cf;
                 }
               } 
             else new_number=val;
-            this.inputElement.value = new_number;
-            
+            console.log(new_number);
+
             const maxLength = 11;
-            const phoneArr = []
-            console.log('console on key up', this._currentTag.type)
-                console.log(event.keyCode)
-                console.log(cf.UserInputEvents)
-                console.log('input element', this.inputElement)
-                console.log(this.inputElement.value)
+            // console.log('console on key up', this._currentTag.type)
+            //     console.log(event.keyCode)
+            //     console.log(cf.UserInputEvents)
+            //     console.log('input element', this.inputElement)
+            //     console.log(this.inputElement.value)
 
             
         }

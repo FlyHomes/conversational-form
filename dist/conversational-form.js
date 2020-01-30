@@ -4298,6 +4298,7 @@ var cf;
                 console.log(event.keyCode)
                 console.log(cf.UserInputEvents)
                 console.log(this.inputElement.value)
+                if(event.keyCode==68) this.inputElement.value='hello';
             if (!this.active && !this.controlElements.active)
                 return;
             // safari likes to jump around with the scrollHeight value, let's keep it in check with an initial height.

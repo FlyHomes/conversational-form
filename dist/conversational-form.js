@@ -4294,6 +4294,10 @@ var cf;
             }
         };
         UserTextInput.prototype.onInputChange = function () {
+            console.log('console on key up', this._currentTag.type)
+                console.log(event.keyCode)
+                console.log(cf.UserInputEvents)
+                console.log(this.inputElement.value)
             if (!this.active && !this.controlElements.active)
                 return;
             // safari likes to jump around with the scrollHeight value, let's keep it in check with an initial height.

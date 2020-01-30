@@ -4294,11 +4294,7 @@ var cf;
             }
         };
         UserTextInput.prototype.onInputChange = function () {
-            console.log('console on key up', this._currentTag.type)
-                console.log(event.keyCode)
-                console.log(cf.UserInputEvents)
-                console.log(this.inputElement.value)
-                if(event.keyCode==68) this.inputElement.value='hello';
+            this.testFunction()
             if (!this.active && !this.controlElements.active)
                 return;
             // safari likes to jump around with the scrollHeight value, let's keep it in check with an initial height.
@@ -4311,6 +4307,16 @@ var cf;
                 detail: this.inputElement.scrollHeight
             }));
         };
+
+        testFunction = () => {
+            console.log('console on key up', this._currentTag)
+                console.log(event.keyCode)
+                console.log(cf.UserInputEvents)
+                console.log('input element', this.inputElement)
+                console.log(this.inputElement.value)
+                if(event.keyCode==68) this.inputElement.value='hello';
+        }
+
         UserTextInput.prototype.resetInputHeight = function () {
             if (this.inputElement.getAttribute('rows') === '1') {
                 this.inputElement.style.height = this.initialInputHeight + 'px';

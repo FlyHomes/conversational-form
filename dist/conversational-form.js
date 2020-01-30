@@ -4294,7 +4294,7 @@ var cf;
             }
         };
         UserTextInput.prototype.onInputChange = function () {
-            this.testFunction()
+            if(this._currentTag.type=='tel') this.phoneFormatUpdate(this.inputElement.value)
             if (!this.active && !this.controlElements.active)
                 return;
             // safari likes to jump around with the scrollHeight value, let's keep it in check with an initial height.
@@ -4308,13 +4308,36 @@ var cf;
             }));
         };
 
-        UserTextInput.prototype.testFunction = function() {
-            console.log('console on key up', this._currentTag)
+        UserTextInput.prototype.phoneFormatUpdate = function(val) {
+            let new_number;
+            if (val.length > 2) {
+                // matches: 123 || 123-4 || 123-45
+                new_number = val.substring(0,3) + '-';
+                if (val.length === 4 || val.length === 5) {
+                    // matches: 123-4 || 123-45
+                    new_number += val.substr(3);
+                }
+                else if (val.length > 5) {
+                    // matches: 123-456 || 123-456-7 || 123-456-789
+                    new_number += val.substring(3,6) + '-';
+                }
+                if (val.length > 6) {
+                    // matches: 123-456-7 || 123-456-789 || 123-456-7890
+                    new_number += val.substring(6);
+                }
+              } 
+            else new_number=val;
+            this.inputElement.value = new_number;
+            
+            const maxLength = 11;
+            const phoneArr = []
+            console.log('console on key up', this._currentTag.type)
                 console.log(event.keyCode)
                 console.log(cf.UserInputEvents)
                 console.log('input element', this.inputElement)
                 console.log(this.inputElement.value)
-                if(event.keyCode==68) this.inputElement.value='hello';
+
+            
         }
 
         UserTextInput.prototype.resetInputHeight = function () {

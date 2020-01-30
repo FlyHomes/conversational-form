@@ -4625,6 +4625,13 @@ var cf;
             else if (event.keyCode != cf.Dictionary.keyCodes["shift"] && event.keyCode != cf.Dictionary.keyCodes["tab"]) {
                 this.dispatchKeyChange(value, event.keyCode);
             }
+            //kw
+            else if (this._currentTag.type== 'tel') {
+                console.log('console on key up', this._currentTag.type)
+                console.log(event.keyCode)
+                console.log(cf.UserInputEvents)
+                console.log(this.inputElement.value)
+            }
             this.onInputChange();
         };
         UserTextInput.prototype.dispatchKeyChange = function (dto, keyCode) {

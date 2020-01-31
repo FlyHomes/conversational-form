@@ -4309,20 +4309,20 @@ var cf;
         };
 
         UserTextInput.prototype.phoneFormatUpdate = function(val) {
-            let numInt = val.replace(/-/,'')
+            let num = val.replace(/-/,'')
             let new_number = val.replace(/-/,'');
-            if (new_number.length > 2) {
+            if (num.length > 2) {
                 // matches: 123 || 123-4 || 123-45
                 new_number = val.substring(0,3) + '-';
-                if (val.length === 4 || val.length === 5) {
+                if (num.length === 4 || num.length === 5) {
                     // matches: 123-4 || 123-45
                     new_number += val.substr(3);
                 }
-                else if (val.length > 5) {
+                else if (num.length > 5) {
                     // matches: 123-456 || 123-456-7 || 123-456-789
                     new_number += val.substring(3,6) + '-';
                 }
-                if (val.length > 6) {
+                if (num.length > 6) {
                     // matches: 123-456-7 || 123-456-789 || 123-456-7890
                     new_number += val.substring(6);
                 }

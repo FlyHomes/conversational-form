@@ -4309,7 +4309,8 @@ var cf;
         };
 
         UserTextInput.prototype.phoneFormatUpdate = function(val) {
-            let new_number = val.replace(/\D/g,'');
+            let numInt = val.replace(/-/,'')
+            let new_number = val.replace(/-/,'');
             if (new_number.length > 2) {
                 // matches: 123 || 123-4 || 123-45
                 new_number = val.substring(0,3) + '-';
@@ -4327,6 +4328,9 @@ var cf;
                 }
               } 
             else new_number=val;
+            this.inputElement.value =  (new_number.length > 12) ? new_number.substring(0,12) : new_number;
+
+            
             console.log(new_number);
 
             const maxLength = 11;

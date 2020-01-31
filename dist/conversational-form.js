@@ -4321,7 +4321,7 @@ var cf;
                     // matches: 123-4 || 123-45
                     phone_number += num.substr(3);
                 }
-                else if (clean.length > 5) {
+                if (clean.length > 5) {
                     // matches: 123-456 || 123-456-7 || 123-456-789
                     phone_number += (num.substring(3,6) + '-' + num.substring(6));
                 }

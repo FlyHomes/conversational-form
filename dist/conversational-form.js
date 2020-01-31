@@ -4323,7 +4323,7 @@ var cf;
                 // }
                 if (clean.length > 6) {
                     // matches: 123-456 || 123-456-7 || 123-456-789
-                    phone_number += ('-' + num.substring(6));
+                    phone_number += ('-' + clean.substring(6));
                 }
                 // if (clean.length > 6) {
                 //     // matches: 123-456-7 || 123-456-789 || 123-456-7890
@@ -4331,10 +4331,9 @@ var cf;
                 // }
               } 
             else phone_number=clean;
-            this.inputElement.value =  (phone_number.length > 12) ? phone_number.substring(0,12) : phone_number;
-
-            
-            console.log(new_number);
+            this.inputElement.value =  phone_number.length > 12 ? phone_number.substring(0,12) : phone_number;
+            console.log(this.input.value)
+            console.log(phone_number)
 
             const maxLength = 11;
             // console.log('console on key up', this._currentTag.type)

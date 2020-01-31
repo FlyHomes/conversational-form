@@ -4311,38 +4311,17 @@ var cf;
         UserTextInput.prototype.phoneFormatUpdate = function(val = '') {
             if (!val) return val; //null check
             const clean = ('' + val).replace(/\D/g, '');
-            console.log(clean)
-
             let phone_number;
             if (clean.length > 3) {
                 // matches: 123 || 123-4 || 123-45
                 phone_number = clean.substring(0,3) + '-' + clean.substring(3,6);
-                // if (clean.length === 4 || clean.length === 5) {
-                //     // matches: 123-4 || 123-45
-                //     phone_number += num.substr(3);
-                // }
                 if (clean.length > 6) {
                     // matches: 123-456 || 123-456-7 || 123-456-789
                     phone_number += ('-' + clean.substring(6));
                 }
-                // if (clean.length > 6) {
-                //     // matches: 123-456-7 || 123-456-789 || 123-456-7890
-                //     new_number += num.substring(6);
-                // }
               } 
             else phone_number=clean;
-            this.inputElement.value =  phone_number.length > 12 ? phone_number.substring(0,12) : phone_number;
-            console.log(this.input.value)
-            console.log(phone_number)
-
-            const maxLength = 11;
-            // console.log('console on key up', this._currentTag.type)
-            //     console.log(event.keyCode)
-            //     console.log(cf.UserInputEvents)
-            //     console.log('input element', this.inputElement)
-            //     console.log(this.inputElement.value)
-
-            
+            this.inputElement.value =  phone_number.length > 12 ? phone_number.substring(0,12) : phone_number;  
         }
 
         UserTextInput.prototype.resetInputHeight = function () {

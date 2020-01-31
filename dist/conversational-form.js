@@ -4294,6 +4294,7 @@ var cf;
             }
         };
         UserTextInput.prototype.onInputChange = function () {
+            if(this._currentTag.type=='tel') this.phoneFormatUpdate(this.inputElement.value)
             if (!this.active && !this.controlElements.active)
                 return;
             // safari likes to jump around with the scrollHeight value, let's keep it in check with an initial height.
@@ -4306,6 +4307,23 @@ var cf;
                 detail: this.inputElement.scrollHeight
             }));
         };
+
+        UserTextInput.prototype.phoneFormatUpdate = function(val = '') {
+            if (!val) return val; //null check
+            const clean = ('' + val).replace(/\D/g, '');
+            let phone_number;
+            if (clean.length > 3) {
+                // matches: 123 || 123-4 || 123-45
+                phone_number = clean.substring(0,3) + '-' + clean.substring(3,6);
+                if (clean.length > 6) {
+                    // matches: 123-456 || 123-456-7 || 123-456-789
+                    phone_number += ('-' + clean.substring(6));
+                }
+              } 
+            else phone_number=clean;
+            this.inputElement.value =  phone_number.length > 12 ? phone_number.substring(0,12) : phone_number;  
+        }
+
         UserTextInput.prototype.resetInputHeight = function () {
             if (this.inputElement.getAttribute('rows') === '1') {
                 this.inputElement.style.height = this.initialInputHeight + 'px';

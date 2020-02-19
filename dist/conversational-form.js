@@ -5067,6 +5067,7 @@ var cf;
             this.response = innerResponse.split("&&").join(" ");
         };
         ChatResponse.prototype.scrollTo = function () {
+            console.log('consoel scrollTo() called')
             var y = this.el.offsetTop;
             var h = this.el.offsetHeight;
             if (!this.container && this.el)

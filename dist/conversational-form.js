@@ -5263,7 +5263,7 @@ var cf;
                         }
                     }
                 }
-                responseToScrollTo.scrollTo();
+                //responseToScrollTo.scrollTo();
             }
             this.onInputElementChanged();
         };
@@ -5293,7 +5293,7 @@ var cf;
                     robot.whenReady(function () {
                         // create user response
                         _this.currentUserResponse = _this.createResponse(false, currentTag);
-                        robot.scrollTo();
+                        //robot.scrollTo();
                     });
                     if (_this.currentUserResponse) {
                         // linked, but only if we should not ignore existing tag

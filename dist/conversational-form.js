@@ -4987,7 +4987,7 @@ var cf;
                             _this.tryClearThinking();
                             var p = _this.textEl.getElementsByTagName("p");
                             p[i_3].classList.add("show");
-                            _this.scrollTo();
+                            //_this.scrollTo();
                         }, chainedResponses.length > 1 && i_3 > 0 ? robotInitResponseTime + ((i_3 + 1) * this_1.uiOptions.robot.chainedResponseTime) : 0);
                     };
                     var this_1 = this;
@@ -5004,7 +5004,7 @@ var cf;
                             _this.textEl.innerHTML += "<p>" + str + "</p>";
                             var p = _this.textEl.getElementsByTagName("p");
                             p[i_4].classList.add("show");
-                            _this.scrollTo();
+                            //_this.scrollTo();
                         }, revealAfter);
                     };
                     var this_2 = this;
@@ -5041,7 +5041,7 @@ var cf;
                 var p = this.textEl.getElementsByTagName("p");
                 p[p.length - 1].offsetWidth;
                 p[p.length - 1].classList.add("show");
-                this.scrollTo();
+                //this.scrollTo();
             }
             this.parsedResponse = innerResponse;
             // }

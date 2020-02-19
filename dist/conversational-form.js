@@ -1049,9 +1049,9 @@ var cf;
                         document.querySelector('.scrollableInner').classList.remove('scroll');
                         // Check if chatlist is scrolled to the bottom - if not we need to do it manually (pertains to Chrome)
                         var scrollContainer = document.querySelector('scrollable');
-                        if (scrollContainer.scrollTop < scrollContainer.scrollHeight) {
-                            scrollContainer.scrollTop = scrollContainer.scrollHeight;
-                        }
+                        // if (scrollContainer.scrollTop < scrollContainer.scrollHeight) {
+                        //     scrollContainer.scrollTop = scrollContainer.scrollHeight;
+                        // }
                     }, 300);
                 }, 200);
             }
@@ -4830,8 +4830,8 @@ var cf;
                         setTimeout(function () {
                             _this.el.style.height = 'auto';
                             if (_this.hasFlexBug() && inner.scrollHeight > outer.offsetHeight) {
-                                inner.classList.add('scroll');
-                                inner.scrollTop = inner.scrollHeight;
+                                //inner.classList.add('scroll');
+                                //inner.scrollTop = inner.scrollHeight;
                             }
                         }, (cssAnimationTime + cssAnimationDelayTime) * 1500);
                     }
@@ -4839,8 +4839,8 @@ var cf;
                         // Fallback method. Assuming animations do not take longer than 1000ms
                         setTimeout(function () {
                             if (_this.hasFlexBug() && inner.scrollHeight > outer.offsetHeight) {
-                                inner.classList.add('scroll');
-                                inner.scrollTop = inner.scrollHeight;
+                                //inner.classList.add('scroll');
+                                //inner.scrollTop = inner.scrollHeight;
                             }
                             _this.el.style.height = 'auto';
                         }, 3000);
@@ -5066,18 +5066,18 @@ var cf;
             // remove the double ampersands if present
             this.response = innerResponse.split("&&").join(" ");
         };
-        ChatResponse.prototype.scrollTo = function () {
-            console.log('consoel scrollTo() called')
-            var y = this.el.offsetTop;
-            var h = this.el.offsetHeight;
-            if (!this.container && this.el)
-                this.container = this.el; // On edit this.container is empty so this is a fix to reassign it. Not ideal, but...
-            if (this.container
-                && this.container.parentElement
-                && this.container.parentElement.scrollHeight) {
-                this.container.parentElement.scrollTop = y + h + this.container.parentElement.scrollHeight;
-            }
-        };
+        // ChatResponse.prototype.scrollTo = function () {
+        //     console.log('consoel scrollTo() called')
+        //     var y = this.el.offsetTop;
+        //     var h = this.el.offsetHeight;
+        //     if (!this.container && this.el)
+        //         this.container = this.el; // On edit this.container is empty so this is a fix to reassign it. Not ideal, but...
+        //     if (this.container
+        //         && this.container.parentElement
+        //         && this.container.parentElement.scrollHeight) {
+        //         this.container.parentElement.scrollTop = y + h + this.container.parentElement.scrollHeight;
+        //     }
+        // };
         ChatResponse.prototype.checkForEditMode = function () {
             if (!this.isRobotResponse && !this.el.hasAttribute("thinking")) {
                 this.el.classList.add("can-edit");
